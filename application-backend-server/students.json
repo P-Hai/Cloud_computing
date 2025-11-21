@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "student_id": "SV001",
+    "name": "Nguyễn Văn An",
+    "major": "Công nghệ thông tin",
+    "gpa": 3.5
+  },
+  {
+    "id": 2,
+    "student_id": "SV002",
+    "name": "Trần Thị Bình",
+    "major": "Khoa học dữ liệu",
+    "gpa": 3.8
+  },
+  {
+    "id": 3,
+    "student_id": "SV003",
+    "name": "Lê Văn Cường",
+    "major": "An toàn thông tin",
+    "gpa": 3.6
+  },
+  {
+    "id": 4,
+    "student_id": "SV004",
+    "name": "Phạm Thị Dung",
+    "major": "Trí tuệ nhân tạo",
+    "gpa": 3.9
+  },
+  {
+    "id": 5,
+    "student_id": "SV005",
+    "name": "Hoàng Văn Em",
+    "major": "Công nghệ phần mềm",
+    "gpa": 3.7
+  }
+]

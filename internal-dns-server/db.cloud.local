@@ -1,0 +1,47 @@
+$TTL 1H
+@   IN SOA  ns.cloud.local. admin.cloud.local. (
+             2025111801  ; Serial
+             1H          ; Refresh
+             15M         ; Retry
+             1W          ; Expire
+             1H )        ; Negative Cache TTL
+
+    IN NS   ns.cloud.local.
+
+; Name Server
+ns                              IN A    127.0.0.1
+
+; Web Servers
+web-frontend-server             IN A    10.10.10.10
+web                             IN A    10.10.10.10
+
+; Application Servers
+application-backend-server      IN A    10.10.10.20
+app-backend                     IN A    10.10.10.20
+app-server                      IN A    10.10.10.20
+
+; Database
+relational-database-server      IN A    10.10.10.25
+db                              IN A    10.10.10.25
+
+; Storage
+object-storage-server           IN A    10.10.10.30
+minio                           IN A    10.10.10.30
+storage                         IN A    10.10.10.30
+
+; Authentication
+authentication-identity-server  IN A    10.10.10.40
+keycloak                        IN A    10.10.10.40
+auth                            IN A    10.10.10.40
+
+; Monitoring
+monitoring-prometheus-server    IN A    10.10.10.50
+prometheus                      IN A    10.10.10.50
+
+monitoring-grafana-dashboard-server IN A    10.10.10.60
+grafana                         IN A    10.10.10.60
+
+; API Gateway
+api-gateway-proxy-server        IN A    10.10.10.80
+proxy                           IN A    10.10.10.80
+gateway                         IN A    10.10.10.80

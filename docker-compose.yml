@@ -1,0 +1,169 @@
+version: "3.8"
+
+networks:
+  cloud-net:
+    name: cloud-net
+    driver: bridge
+
+volumes:
+  db_data:
+  prometheus_data:
+  grafana_data:
+
+services:
+  # ============================================================
+  # 1. WEB FRONTEND SERVER
+  # ============================================================
+  web-frontend-server:
+    build: ./web-frontend-server
+    image: phuchaisv/web:dev
+    container_name: web-frontend-server
+    networks: [cloud-net]
+    ports: ["8080:80"]
+    restart: unless-stopped
+
+  # ============================================================
+  # 2. APPLICATION BACKEND SERVER
+  # ============================================================
+  application-backend-server:
+    build: ./application-backend-server
+    image: phuchaisv/app:dev
+    container_name: application-backend-server
+    networks: [cloud-net]
+    ports: ["8085:8081"]
+    environment:
+      OIDC_ISSUER: "http://authentication-identity-server:8080/realms/master"
+      OIDC_AUDIENCE: "myapp"
+    restart: unless-stopped
+    depends_on:
+      - authentication-identity-server
+
+  # ============================================================
+  # 3. RELATIONAL DATABASE SERVER
+  # ============================================================
+  relational-database-server:
+    image: mariadb:11
+    platform: linux/amd64
+    container_name: relational-database-server
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: minicloud
+    volumes:
+      - ./relational-database-server/init:/docker-entrypoint-initdb.d:ro
+      - db_data:/var/lib/mysql
+    ports: ["3306:3306"]
+    networks: [cloud-net]
+    restart: unless-stopped
+
+  # ============================================================
+  # 4. AUTHENTICATION IDENTITY SERVER
+  # ============================================================
+  authentication-identity-server:
+    image: quay.io/keycloak/keycloak:latest
+    platform: linux/amd64
+    container_name: authentication-identity-server
+    command: ["start-dev"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_STRICT: "false"
+      KC_HTTP_ENABLED: "true"
+    ports: ["8081:8080"]
+    networks: [cloud-net]
+    restart: unless-stopped
+
+  # ============================================================
+  # 5. OBJECT STORAGE SERVER
+  # ============================================================
+  object-storage-server:
+    image: minio/minio:latest
+    platform: linux/amd64
+    container_name: object-storage-server
+    command: ["server", "/data", "--console-address", ":9001"]
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - ./object-storage-server/data:/data
+    ports: ["9000:9000", "9001:9001"]
+    networks: [cloud-net]
+    restart: unless-stopped
+
+  # ============================================================
+  # 6. INTERNAL DNS SERVER
+  # ============================================================
+  internal-dns-server:
+    image: internetsystemsconsortium/bind9:9.18
+    platform: linux/amd64
+    container_name: internal-dns-server
+    ports: ["9053:53/udp", "9053:53/tcp"]
+    volumes:
+      - ./internal-dns-server/named.conf.options:/etc/bind/named.conf.options:ro
+      - ./internal-dns-server/named.conf.local:/etc/bind/named.conf.local:ro
+      - ./internal-dns-server/db.cloud.local:/etc/bind/db.cloud.local:ro
+    networks: [cloud-net]
+    restart: unless-stopped
+
+  # ============================================================
+  # 7. MONITORING NODE EXPORTER SERVER
+  # ============================================================
+  monitoring-node-exporter-server:
+    image: prom/node-exporter:latest
+    platform: linux/amd64
+    container_name: monitoring-node-exporter-server
+    ports: ["9100:9100"]
+    networks: [cloud-net]
+    restart: unless-stopped
+
+  # ============================================================
+  # 8. MONITORING PROMETHEUS SERVER
+  # ============================================================
+  monitoring-prometheus-server:
+    image: prom/prometheus:latest
+    platform: linux/amd64
+    container_name: monitoring-prometheus-server
+    ports: ["9090:9090"]
+    volumes:
+      - ./monitoring-prometheus-server/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+    networks: [cloud-net]
+    restart: unless-stopped
+    depends_on:
+      - monitoring-node-exporter-server
+
+  # ============================================================
+  # 9. MONITORING GRAFANA DASHBOARD SERVER
+  # ============================================================
+  monitoring-grafana-dashboard-server:
+    image: grafana/grafana:latest
+    platform: linux/amd64
+    container_name: monitoring-grafana-dashboard-server
+    ports: ["3000:3000"]
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks: [cloud-net]
+    restart: unless-stopped
+
+  # ============================================================
+  # 10. API GATEWAY PROXY SERVER
+  # ============================================================
+  api-gateway-proxy-server:
+    image: nginx:stable
+    platform: linux/amd64
+    container_name: api-gateway-proxy-server
+    ports: ["80:80"]
+    volumes:
+      - ./api-gateway-proxy-server/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - web-frontend-server
+      - application-backend-server
+      - authentication-identity-server
+    networks: [cloud-net]
+    restart: unless-stopped

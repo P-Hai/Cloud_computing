@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MyMiniCloud - Home</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .info {
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        li:before {
+            content: "✓ ";
+            color: #ffd700;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌐 MyMiniCloud – Home</h1>
+
+        <div class="info">
+            <p>Chào mừng đến với hệ thống <strong>Cloud thu nhỏ</strong>!</p>
+
+            <p>Hệ thống bao gồm 9 server chính:</p>
+            <ul>
+                <li>Web Frontend Server</li>
+                <li>Application Backend Server</li>
+                <li>Relational Database Server</li>
+                <li>Authentication Identity Server</li>
+                <li>Object Storage Server</li>
+                <li>Internal DNS Server</li>
+                <li>Monitoring Prometheus Server</li>
+                <li>Monitoring Grafana Dashboard Server</li>
+                <li>API Gateway Proxy Server</li>
+            </ul>
+        </div>
+
+        <p style="text-align: center; margin-top: 30px;">
+            <a href="/blog/">📝 Xem Blog →</a>
+        </p>
+    </div>
+</body>
+
+</html>
