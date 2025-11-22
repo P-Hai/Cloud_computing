@@ -32,8 +32,8 @@ services:
     networks: [cloud-net]
     ports: ["8085:8081"]
     environment:
-      OIDC_ISSUER: "http://authentication-identity-server:8080/realms/master"
-      OIDC_AUDIENCE: "myapp"
+      OIDC_ISSUER: "http://authentication-identity-server:8080/realms/myminicloud-realm"
+      OIDC_AUDIENCE: "account"
     restart: unless-stopped
     depends_on:
       - authentication-identity-server

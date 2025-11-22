@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Microservices - Kiến trúc của tương lai</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .article {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .meta {
+            color: #f0f0f0;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .content {
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .comparison {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="article">
+        <h1>🏗️ Microservices - Kiến trúc của tương lai</h1>
+        <div class="meta">📅 Ngày đăng: 22/11/2024 | 👤 Tác giả: Sinh viên MyMiniCloud</div>
+
+        <div class="content">
+            <h2>🤔 Microservices là gì?</h2>
+            <p>Thay vì xây một tòa nhà khổng lồ (Monolith), ta xây nhiều ngôi nhà nhỏ (Microservices), mỗi nhà có chức
+                năng riêng, có thể sửa chữa riêng mà không ảnh hưởng nhà khác!</p>
+
+            <div class="comparison">
+                <h3>🏢 Monolith (Kiến trúc nguyên khối)</h3>
+                <p>✅ Đơn giản khi bắt đầu<br>
+                    ❌ Khó bảo trì khi lớn<br>
+                    ❌ Một lỗi → toàn hệ thống sập<br>
+                    ❌ Deploy lại toàn bộ ứng dụng</p>
+
+                <h3 style="margin-top: 20px;">🏘️ Microservices</h3>
+                <p>✅ Dễ bảo trì và mở rộng<br>
+                    ✅ Một service lỗi → các service khác vẫn chạy<br>
+                    ✅ Deploy độc lập từng service<br>
+                    ✅ Đội ngũ làm việc độc lập</p>
+            </div>
+
+            <h2>🎯 Ví dụ trong MyMiniCloud</h2>
+            <p>Dự án của mình là một ví dụ điển hình về Microservices:</p>
+            <ul>
+                <li>🌐 <strong>Web Server</strong>: Chỉ lo phục vụ trang web</li>
+                <li>⚙️ <strong>App Server</strong>: Chỉ lo xử lý API</li>
+                <li>💾 <strong>Database</strong>: Chỉ lo lưu trữ</li>
+                <li>🔐 <strong>Auth Server</strong>: Chỉ lo xác thực</li>
+            </ul>
+
+            <p>Mỗi service độc lập, giao tiếp qua API. Nếu Web Server lỗi, App Server vẫn chạy bình thường!</p>
+
+            <h2>🚀 Thách thức của Microservices</h2>
+            <p>Không phải là màu hồng! Microservices đòi hỏi:</p>
+            <ul>
+                <li>📡 Quản lý giao tiếp giữa các service</li>
+                <li>🔍 Monitoring phức tạp hơn</li>
+                <li>🧪 Testing khó khăn hơn</li>
+                <li>🛡️ Bảo mật nhiều điểm đầu vào</li>
+            </ul>
+
+            <h2>💡 Kết luận</h2>
+            <p>Microservices không phải là giải pháp cho mọi vấn đề. Nhưng với hệ thống lớn, cần scale, cần nhiều team
+                làm việc song song, đây là kiến trúc tuyệt vời!</p>
+
+            <p><em>"Chia để trị - Nguyên tắc cổ xưa vẫn đúng trong thời đại số! 🎯"</em></p>
+        </div>
+
+        <div class="back-link">
+            <a href="/blog/">← Quay lại danh sách blog</a>
+        </div>
+    </div>
+</body>
+
+</html>

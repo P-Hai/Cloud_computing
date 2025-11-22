@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Docker - Công nghệ đóng gói ứng dụng thần kỳ</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .article {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .meta {
+            color: #f0f0f0;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .content {
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .code-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="article">
+        <h1>🐳 Docker - Công nghệ đóng gói ứng dụng thần kỳ</h1>
+        <div class="meta">📅 Ngày đăng: 22/11/2024 | 👤 Tác giả: Sinh viên MyMiniCloud</div>
+
+        <div class="content">
+            <h2>🎁 Docker là gì?</h2>
+            <p>Hãy tưởng tượng bạn muốn gửi một món quà dễ vỡ cho bạn bè. Bạn sẽ làm gì? Đúng rồi, bạn sẽ đóng gói cẩn
+                thận vào hộp, kèm theo giấy báo, bọt xốp...</p>
+
+            <p><strong>Docker cũng vậy!</strong> Nó đóng gói ứng dụng của bạn cùng với MỌI THỨ cần thiết (thư viện, cấu
+                hình, dependencies) vào một "container", đảm bảo ứng dụng chạy giống hệt nhau ở mọi nơi!</p>
+
+            <h2>🆚 So sánh với máy ảo (VM)</h2>
+            <p><strong>Máy ảo (VM)</strong>: Giống như bạn xây cả một ngôi nhà mới (nặng, tốn tài nguyên)</p>
+            <p><strong>Docker Container</strong>: Giống như dựng lều trại (nhẹ, nhanh, hiệu quả)</p>
+
+            <h2>💪 Ưu điểm của Docker</h2>
+            <ul>
+                <li>⚡ <strong>Khởi động cực nhanh</strong>: Vài giây thay vì vài phút</li>
+                <li>🪶 <strong>Nhẹ</strong>: Tiết kiệm RAM và CPU</li>
+                <li>📦 <strong>Portable</strong>: "Build once, run anywhere"</li>
+                <li>🔄 <strong>Dễ rollback</strong>: Lỗi? Rollback ngay!</li>
+            </ul>
+
+            <h2>🛠️ Ví dụ thực tế trong dự án</h2>
+            <p>Trong dự án MyMiniCloud, mình đã sử dụng Docker để chạy 9 server khác nhau:</p>
+
+            <div class="code-box">
+                docker-compose up -d<br>
+                # Chỉ 1 lệnh, 9 server cùng chạy! 🚀
+            </div>
+
+            <h2>🎯 Bài học quan trọng</h2>
+            <p>Docker không chỉ là công cụ, nó thay đổi cách chúng ta phát triển và triển khai phần mềm. Nhờ Docker,
+                việc deploy ứng dụng không còn là cơn ác mộng nữa!</p>
+
+            <p><em>"Docker: Giải pháp cho câu nói kinh điển 'Nhưng trên máy em nó chạy được mà!' 😄"</em></p>
+        </div>
+
+        <div class="back-link">
+            <a href="/blog/">← Quay lại danh sách blog</a>
+        </div>
+    </div>
+</body>
+
+</html>

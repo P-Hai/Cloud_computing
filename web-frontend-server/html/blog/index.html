@@ -6,47 +6,91 @@
     <meta charset="utf-8">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 30px;
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
         }
 
         h1 {
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 30px;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: #ffd700;
         }
 
         .container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
+            padding: 40px;
+            border-radius: 15px;
             backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
 
-        a {
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .blog-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .blog-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-item h2 {
+            margin: 0 0 10px 0;
+            color: #ffd700;
+        }
+
+        .blog-item p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .blog-item a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .blog-item a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.2em;
+        }
+
+        .back-link a {
             color: #ffd700;
             text-decoration: none;
             font-weight: bold;
         }
 
-        a:hover {
+        .back-link a:hover {
             text-decoration: underline;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-        }
-
-        .back-link {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 1.2em;
         }
     </style>
 </head>
@@ -55,12 +99,41 @@
     <div class="container">
         <h1>📝 MyMiniCloud – Blog</h1>
 
-        <p class="intro">Đây là trang blog của hệ thống MyMiniCloud.<br>
-            (Các bài viết sẽ được thêm vào trong phần mở rộng)</p>
+        <div class="intro">
+            <p>Chào mừng đến với blog của mình! 🎉</p>
+            <p>Đây là nơi mình chia sẻ kiến thức và trải nghiệm về Cloud Computing, Docker, và các công nghệ hiện đại.
+            </p>
+        </div>
 
-        <p class="back-link">
+        <ul class="blog-list">
+            <li class="blog-item">
+                <h2>🌥️ Hành trình làm quen với Cloud Computing</h2>
+                <p><em>📅 22/11/2024</em></p>
+                <p>Khám phá thế giới Cloud Computing qua góc nhìn của một người mới bắt đầu. Từ những khái niệm cơ bản
+                    đến việc xây dựng hệ thống Cloud thu nhỏ đầu tiên!</p>
+                <a href="blog1.html">Đọc tiếp →</a>
+            </li>
+
+            <li class="blog-item">
+                <h2>🐳 Docker - Công nghệ đóng gói ứng dụng thần kỳ</h2>
+                <p><em>📅 22/11/2024</em></p>
+                <p>Tìm hiểu về Docker - công nghệ containerization đang thay đổi cách chúng ta phát triển và deploy ứng
+                    dụng. So sánh với VM và ứng dụng thực tế.</p>
+                <a href="blog2.html">Đọc tiếp →</a>
+            </li>
+
+            <li class="blog-item">
+                <h2>🏗️ Microservices - Kiến trúc của tương lai</h2>
+                <p><em>📅 22/11/2024</em></p>
+                <p>Phân tích kiến trúc Microservices - xu hướng hiện đại trong phát triển phần mềm. Ưu điểm, nhược điểm
+                    và cách áp dụng trong dự án thực tế.</p>
+                <a href="blog3.html">Đọc tiếp →</a>
+            </li>
+        </ul>
+
+        <div class="back-link">
             <a href="/">🏠 Quay về trang chủ</a>
-        </p>
+        </div>
     </div>
 </body>
 

@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Báo Cáo Dự Án MyMiniCloud</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            line-height: 1.8;
+            background: #ffffff;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 25px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #764ba2;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+
+        .info-box p {
+            margin: 10px 0;
+            font-size: 1.05em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #f0f0f0;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+
+        .feature-box {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .checkmark {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #667eea;
+            text-align: center;
+        }
+
+        .signature-box {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1> BÁO CÁO DỰ ÁN MYMINICLOUD</h1>
+        <p class="subtitle">Xây Dựng Hệ Thống Cloud Computing Thu Nhỏ</p>
+    </div>
+
+    <div class="info-box">
+        <p><strong> Họ và tên:</strong> [Điền tên của bạn]</p>
+        <p><strong> Mã số sinh viên:</strong> [Điền MSSV]</p>
+        <p><strong> Lớp:</strong> [Điền tên lớp]</p>
+        <p><strong> Ngày nộp:</strong> 22 tháng 11 năm 2024</p>
+        <p><strong> Trường:</strong> [Điền tên trường]</p>
+    </div>
+
+    <h2>1. Giới thiệu tổng quan</h2>
+    <p><strong>MyMiniCloud</strong> là một dự án xây dựng hệ thống Cloud Computing thu nhỏ, được phát triển hoàn toàn
+        bằng công nghệ <strong>Docker</strong> và <strong>Docker Compose</strong>. Hệ thống mô phỏng đầy đủ 9 thành phần
+        cốt lõi của một nền tảng đám mây thực tế như Amazon Web Services (AWS), Microsoft Azure, hoặc Google Cloud
+        Platform (GCP).</p>
+
+    <div class="feature-box">
+        <h3> Mục tiêu dự án</h3>
+        <ul>
+            <li>Hiểu rõ kiến trúc và cách hoạt động của Cloud Platform</li>
+            <li>Thực hành triển khai hệ thống phân tán với Docker</li>
+            <li>Áp dụng các công nghệ DevOps và Container Orchestration</li>
+            <li>Xây dựng kiến thức về Microservices Architecture</li>
+        </ul>
+    </div>
+
+    <h2>2. Kiến trúc hệ thống</h2>
+    <p>Hệ thống MyMiniCloud bao gồm 9 server chính, mỗi server đảm nhận một vai trò cụ thể và giao tiếp với nhau qua
+        Docker Network nội bộ (<code>cloud-net</code>):</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 8%">STT</th>
+                <th style="width: 20%">Tên Server</th>
+                <th style="width: 18%">Công nghệ</th>
+                <th style="width: 14%">Cổng</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><strong>Web Frontend</strong></td>
+                <td>Nginx (stable)</td>
+                <td>8080</td>
+                <td>Phục vụ website tĩnh, blog cá nhân</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><strong>App Backend</strong></td>
+                <td>Flask (Python 3.11)</td>
+                <td>8085</td>
+                <td>REST API server, xử lý business logic</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><strong>Database</strong></td>
+                <td>MariaDB 11</td>
+                <td>3306</td>
+                <td>Lưu trữ dữ liệu quan hệ (RDBMS)</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><strong>Authentication</strong></td>
+                <td>Keycloak (latest)</td>
+                <td>8081</td>
+                <td>Identity Provider, OIDC/OAuth2.0</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><strong>Object Storage</strong></td>
+                <td>MinIO (latest)</td>
+                <td>9000/9001</td>
+                <td>S3-compatible object storage</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td><strong>Internal DNS</strong></td>
+                <td>Bind9 (v9.18)</td>
+                <td>9053</td>
+                <td>DNS resolution cho services nội bộ</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td><strong>Monitoring</strong></td>
+                <td>Prometheus</td>
+                <td>9090</td>
+                <td>Thu thập và lưu trữ metrics</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td><strong>Dashboard</strong></td>
+                <td>Grafana</td>
+                <td>3000</td>
+                <td>Visualization & monitoring UI</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td><strong>API Gateway</strong></td>
+                <td>Nginx (stable)</td>
+                <td>80</td>
+                <td>Reverse proxy, load balancing</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Các tính năng đã triển khai</h2>
+
+    <h3>3.1. Tính năng cơ bản (9/9 servers)</h3>
+    <ul>
+        <li><span class="checkmark"></span> <strong>Web Server:</strong> Nginx phục vụ trang chủ và routing</li>
+        <li><span class="checkmark"></span> <strong>Application Server:</strong> Flask API với endpoints /hello, /secure
+        </li>
+        <li><span class="checkmark"></span> <strong>Database:</strong> MariaDB với database minicloud, bảng notes</li>
+        <li><span class="checkmark"></span> <strong>Authentication:</strong> Keycloak quản lý users và tokens</li>
+        <li><span class="checkmark"></span> <strong>Storage:</strong> MinIO object storage service</li>
+        <li><span class="checkmark"></span> <strong>DNS:</strong> Bind9 phân giải domain nội bộ cloud.local</li>
+        <li><span class="checkmark"></span> <strong>Prometheus:</strong> Monitoring với Node Exporter</li>
+        <li><span class="checkmark"></span> <strong>Grafana:</strong> Dashboard visualization</li>
+        <li><span class="checkmark"></span> <strong>Reverse Proxy:</strong> Nginx routing và load balancing</li>
+    </ul>
+
+    <h3>3.2. Các tính năng mở rộng (10/10)</h3>
+
+    <div class="feature-box">
+        <p><span class="checkmark"></span> <strong>1. Blog cá nhân:</strong> 3 bài viết về Cloud Computing, Docker,
+            Microservices</p>
+        <p><span class="checkmark"></span> <strong>2. Students API:</strong> CRUD operations cho quản lý sinh viên</p>
+        <p><span class="checkmark"></span> <strong>3. StudentDB:</strong> Database với bảng students, 5 records mẫu</p>
+        <p><span class="checkmark"></span> <strong>4. Keycloak Realm:</strong> myminicloud-realm với 2 users (sv01,
+            sv02)</p>
+        <p><span class="checkmark"></span> <strong>5. MinIO Buckets:</strong> profile-pics và documents với files
+            uploaded</p>
+        <p><span class="checkmark"></span> <strong>6. DNS Records:</strong> Bản ghi cho tất cả services nội bộ</p>
+        <p><span class="checkmark"></span> <strong>7. Prometheus Targets:</strong> Monitoring web-frontend-server</p>
+        <p><span class="checkmark"></span> <strong>8. Grafana Dashboard:</strong> System Health với 3 panels (CPU,
+            Memory, Network)</p>
+        <p><span class="checkmark"></span> <strong>9. Proxy Routes:</strong> /student/ endpoint routing</p>
+        <p><span class="checkmark"></span> <strong>10. Load Balancing:</strong> Round-robin giữa 2 web servers</p>
+    </div>
+
+    <h2>4. Công nghệ sử dụng</h2>
+    <table>
+        <tr>
+            <th>Lĩnh vực</th>
+            <th>Công nghệ</th>
+        </tr>
+        <tr>
+            <td>Containerization</td>
+            <td>Docker, Docker Compose</td>
+        </tr>
+        <tr>
+            <td>Web Server</td>
+            <td>Nginx (Web + Reverse Proxy)</td>
+        </tr>
+        <tr>
+            <td>Backend Framework</td>
+            <td>Flask (Python), REST API</td>
+        </tr>
+        <tr>
+            <td>Database</td>
+            <td>MariaDB (MySQL-compatible)</td>
+        </tr>
+        <tr>
+            <td>Authentication</td>
+            <td>Keycloak (OIDC/OAuth 2.0)</td>
+        </tr>
+        <tr>
+            <td>Object Storage</td>
+            <td>MinIO (S3-compatible)</td>
+        </tr>
+        <tr>
+            <td>DNS</td>
+            <td>ISC Bind9</td>
+        </tr>
+        <tr>
+            <td>Monitoring</td>
+            <td>Prometheus + Node Exporter</td>
+        </tr>
+        <tr>
+            <td>Visualization</td>
+            <td>Grafana</td>
+        </tr>
+        <tr>
+            <td>Networking</td>
+            <td>Docker Bridge Network</td>
+        </tr>
+    </table>
+
+    <h2>5. Kết quả đạt được</h2>
+    <ul>
+        <li> Hoàn thành 100% yêu cầu cơ bản (9 servers)</li>
+        <li> Hoàn thành 100% phần mở rộng (10/10 features)</li>
+        <li> Tất cả services hoạt động ổn định và giao tiếp tốt</li>
+        <li> Hệ thống có thể scale và monitor hiệu quả</li>
+        <li> Áp dụng thành công kiến trúc Microservices</li>
+    </ul>
+
+    <h2>6. Kết luận</h2>
+    <p>Qua dự án này, em đã nắm vững được:</p>
+    <ul>
+        <li>Cách xây dựng và triển khai hệ thống phân tán với Docker</li>
+        <li>Kiến trúc Microservices và cách các services giao tiếp</li>
+        <li>Các thành phần cốt lõi của một Cloud Platform</li>
+        <li>Monitoring, logging và security trong môi trường Cloud</li>
+        <li>Load balancing và high availability patterns</li>
+    </ul>
+
+    <p>Dự án đã giúp em hiểu sâu hơn về Cloud Computing và sẵn sàng áp dụng vào các dự án thực tế trong tương lai.</p>
+
+    <div class="footer">
+        <div class="signature-box">
+            <p><strong>Ngày hoàn thành:</strong> 22/11/2024</p>
+            <p style="margin-top: 40px;"><strong>Sinh viên thực hiện</strong></p>
+            <p style="margin-top: 60px;">________________________</p>
+            <p>[Tên của bạn]</p>
+        </div>
+    </div>
+</body>
+
+</html>
